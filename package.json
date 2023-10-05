@@ -1,0 +1,57 @@
+{
+  "name": "ext-name",
+  "version": "0.0.0",
+  "packageManager": "bun@1.0.4",
+  "description": "",
+  "author": "Dennis Ollhoff <contact@nyxb.email>",
+  "license": "MIT",
+  "homepage": "https://nyxb.blog",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nyxb/ext-name.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nyxb/ext-name/issues"
+  },
+  "keywords": [],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "index.cjs",
+  "module": "index.mjs",
+  "types": "index.d.ts",
+  "bin": {
+    "ext-name": "/dist/index.cjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepublishOnly": "nyxr build",
+    "build": "buildkarium",
+    "stub": "buildkarium --stub",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "test": "run vitest --coverage",
+    "typecheck": "tsc --noEmit",
+    "release": "nyxlx changelogen@latest --release && pnpm publish"
+  },
+  "devDependencies": {
+    "bun-types": "latest",
+    "@nyxb/eslint-config": "^1.0.0-beta.6",
+    "@nyxb/nyxi": "^0.0.31",
+    "unbuild": "^2.0.0",
+    "@vitest/coverage-c8": "^0.33.0",
+    "dynot": "^0.1.8",
+    "eslint": "^8.50.0",
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.6"
+  },
+  "peerDependencies": {
+   "typescript": "^5.0.0"
+ }
+}
